@@ -14,10 +14,10 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-# These variables are linked to the /usr/bin directory of the macOS filesystem. This is already in
-# the default user path for macOS users
-MACDESTDIR = /usr/bin
-MACEXECDIR = /usr/bin/sbo-mac
+# These variables are linked to the Applications directory of the macOS filesystem.
+MACDESTDIR = /opt/local/bin
+MACEXECDIR = /opt/local/bin/sbo-mac
+MACEXEC = /opt/local/bin/sbo-mac
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
@@ -45,11 +45,13 @@ install: sbo
 remove: 
 	sudo rm -r ${EXECDIR}
 
-# Installing the executable on macOS systems is a little more tricky.
+# Installing the executable to the /bin folder on macOS systems is a little more tricky.
 install-mac: mac
 	sudo mkdir -p ${MACDESTDIR}
 	sudo cp sbo-mac ${MACDESTDIR}
-	sudo chmod +x ${MACEXECDIR}
+	sudo chmod +x ${MACEXEC}
+
+	
 
 remove-mac:
 	sudo rm -r ${MACEXECDIR}
