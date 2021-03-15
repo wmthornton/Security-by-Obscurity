@@ -4,4 +4,6 @@ An advanced password generator written in C++ and designed to run within the ter
 
 Right now, the code is designed to run as "sudo" because I want to expand the code to allow the user to choose random files containing hexadecimal integers from their filesystems and to have that code stored in the root of the filesystem. I'm sure the hardcore *NIX admins and users will be screaming at this, but it's how I designed the code -- if you don't like that, you're able to change it; that's the beauty of open-source software!
 
-I should note that in order to compile, you will need "g++" installed on your system. The command to compile successfully is: "g++ sha256.cpp POC_Working.cpp -o sbo"
+I should note that in order to compile, you will need "g++" and "make" installed on your system. The command to compile successfully is: "make install". Running this command will compile the executable, and then, using sudo or root permissions, install the executable to your /bin directory. 
+
+To remove the application, simply run "make remove" which will use sudo or root permissions to delete the sbo executable from the /bin directory.
