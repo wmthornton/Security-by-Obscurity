@@ -13,8 +13,8 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-MACDESTDIR = $$/Applications/SBO
-MACEXECDIR = $$/Applications/SBO
+MACDESTDIR = /Volumes/Macintosh\ HD/Applications/SBO
+MACEXECDIR = /Volumes/Macintosh\ HD/Applications/SBO
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
