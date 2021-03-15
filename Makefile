@@ -15,8 +15,8 @@ EXECDIR = $#/bin/sbo
 #******************************************************
 # The executable target can be written very simply
 
-sbo: sha256.cpp POC_Working.cpp
-	$(CC) $(CFLAGS) sha256.cpp POC_Working.cpp -o sbo
+sbo: sha256.cpp sbo_main.cpp
+	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo
 
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
@@ -28,8 +28,8 @@ install: sbo
 remove: 
 	sudo rm -r ${EXECDIR}
 
-refresh: 
-	cd ..
-	rm -r Security-by-Obscurity
-	git clone https://github.com/wmthornton/Security-by-Obscurity.git
+#refresh: 
+#	cd ..
+#	rm -r Security-by-Obscurity
+#	git clone https://github.com/wmthornton/Security-by-Obscurity.git
 	
