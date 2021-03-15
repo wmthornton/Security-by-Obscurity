@@ -13,8 +13,8 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-MACDESTDIR = $$~/Desktop/Security-by-Obscurity
-MACEXECDIR = $$~/Desktop/Security-by-Obscurity
+MACDESTDIR = $$/Users/$USER/Desktop/Security-by-Obscurity
+MACEXECDIR = $$/Users/$USER/Desktop/Security-by-Obscurity
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
@@ -30,7 +30,7 @@ linux: sha256.h sha256.cpp sbo_main.cpp
 # The Macintosh executable target can be written very simply as well
 
 mac: sha256.h sha256.cpp sbo_main.cpp
-	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo
+	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo-mac
 
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
@@ -44,8 +44,8 @@ remove:
 
 # Installing the executable on macOS systems is a little more tricky.
 install-mac: mac
-	sudo mkdir ${MACDESTDIR}
-	sudo cp $< ${MACDESTDIR}
+	mkdir ${MACDESTDIR}
+	cp $< ${MACDESTDIR}
 
 remove-mac:
 	sudo rm -r ${MACEXECDIR}
