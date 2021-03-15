@@ -47,7 +47,7 @@ remove:
 
 # Installing the executable on macOS systems is a little more tricky.
 install-mac: mac
-	sudo mkdir ${MACDESTDIR}
+	sudo mkdir -p ${MACDESTDIR}
 	sudo cp sbo-mac ${MACDESTDIR}
 	sudo chmod +x ${MACEXECDIR}
 
