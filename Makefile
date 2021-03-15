@@ -10,11 +10,14 @@
 CC = g++
 CFLAGS = -Wall -g
 
+# These variables are linked to the Linux root filesystem
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-MACDESTDIR = /Volumes/Macintosh\ HD/Applications/SBO
-MACEXECDIR = /Volumes/Macintosh\ HD/Applications/SBO
+# These variables are linked to the /usr/bin directory of the macOS filesystem. This is already in
+# the default user path for macOS users
+MACDESTDIR = /usr/bin
+MACEXECDIR = /usr/bin/sbo-mac
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
@@ -34,10 +37,10 @@ mac: sha256.h sha256.cpp sbo_main.cpp
 
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
-# user can simply type sbo into the terminal to start the executable
+# user can simply type sbo into the terminal to start the executable as it will be in the user's $PATH
 install: sbo
 	sudo mkdir -p ${DESTDIR}
-	sudo cp $< ${DESTDIR}
+	sudo cp sbo ${DESTDIR}
 
 remove: 
 	sudo rm -r ${EXECDIR}
@@ -46,12 +49,9 @@ remove:
 install-mac: mac
 	sudo mkdir ${MACDESTDIR}
 	sudo cp sbo-mac ${MACDESTDIR}
+	sudo chmod +x ${MACEXECDIR}
 
 remove-mac:
 	sudo rm -r ${MACEXECDIR}
 
-#refresh: 
-#	cd ..
-#	rm -r Security-by-Obscurity
-#	git clone https://github.com/wmthornton/Security-by-Obscurity.git
 	
