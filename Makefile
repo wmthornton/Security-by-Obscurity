@@ -13,8 +13,8 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-MACDESTDIR = $#/Volumes/Macintosh\ HD/Applications
-MACEXECDIR = $#/Volumes/Macintosh\ HD/Applications/sbo-mac
+MACDESTDIR = $$/Applications/
+MACEXECDIR = $$/Applications/SBO
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
@@ -44,7 +44,7 @@ remove:
 
 # Installing the executable on macOS systems is a little more tricky.
 install-mac: mac
-	sudo cp $< ${MACDESTDIR}
+	sudo cp sbo-mac ${MACDESTDIR}
 
 remove-mac:
 	sudo rm -r ${MACEXECDIR}
