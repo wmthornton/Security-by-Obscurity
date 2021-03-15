@@ -44,7 +44,6 @@ remove:
 
 # Installing the executable on macOS systems is a little more tricky.
 install-mac: mac
-	sudo mkdir ${MACDESTDIR}
 	sudo cp $< ${MACDESTDIR}
 
 remove-mac:
