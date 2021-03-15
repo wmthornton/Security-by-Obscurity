@@ -12,6 +12,9 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
+MACDESTDIR = $#/Applications/Security-by-Obscurity
+MACEXECDIR = $#/Applications/Security-by-Obscurity
+
 #******************************************************
 # The executable target can be written very simply
 
@@ -27,6 +30,13 @@ install: sbo
 
 remove: 
 	sudo rm -r ${EXECDIR}
+
+install-mac: sbo
+	sudo mkdir ${MACDESTDIR}
+	sudo cp $< ${MACDESTDIR}
+
+remove-mac:
+	sudo rm -r ${MACEXECDIR}
 
 #refresh: 
 #	cd ..
