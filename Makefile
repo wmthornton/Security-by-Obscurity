@@ -13,8 +13,8 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 
-MACDESTDIR = $$/Users/$USER/Desktop/Security-by-Obscurity
-MACEXECDIR = $$/Users/$USER/Desktop/Security-by-Obscurity
+MACDESTDIR = $#/Volumes/Macintosh\ HD/Applications
+MACEXECDIR = $#/Volumes/Macintosh\ HD/Applications/sbo-mac
 
 #******************************************************
 # We run make all to compile both Linux and macOS versions
@@ -44,8 +44,8 @@ remove:
 
 # Installing the executable on macOS systems is a little more tricky.
 install-mac: mac
-	mkdir ${MACDESTDIR}
-	cp $< ${MACDESTDIR}
+	sudo mkdir ${MACDESTDIR}
+	sudo cp $< ${MACDESTDIR}
 
 remove-mac:
 	sudo rm -r ${MACEXECDIR}
