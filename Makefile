@@ -30,7 +30,7 @@ linux: sha256.h sha256.cpp sbo_main.cpp
 # The Macintosh executable target can be written very simply as well
 
 mac: sha256.h sha256.cpp sbo_main.cpp
-	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o Security-by-Obscurity.app
+	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo
 
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
@@ -43,7 +43,7 @@ remove:
 	sudo rm -r ${EXECDIR}
 
 # Installing the executable on macOS systems is a little more tricky.
-install-mac: sbo-mac
+install-mac: mac
 	sudo mkdir ${MACDESTDIR}
 	sudo cp $< ${MACDESTDIR}
 
