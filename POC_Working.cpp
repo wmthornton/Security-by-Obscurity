@@ -8,8 +8,6 @@
 #include <unistd.h>
 #include "sha256.h" // FIPS 180-2 SHA-224/256/384/512 Implementation
 
-#include <bits/stdc++.h>
-
 using namespace std;
 
 typedef unsigned char u8;
