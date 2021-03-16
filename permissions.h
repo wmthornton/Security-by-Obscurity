@@ -12,6 +12,9 @@ class stdsecurity {
     public:
         void deleteTmp();
 
+    public:
+        void deleteTmpmacOS();
+
 };
 
 #endif // PERMISSIONS_H

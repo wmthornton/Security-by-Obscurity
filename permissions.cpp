@@ -49,3 +49,16 @@ void stdsecurity::deleteTmp(){
     deleted.tmpDeletionSuccess();
     
 }
+
+void stdsecurity::deleteTmpmacOS(){
+
+    // Delete contents of tmp.sbo file created in sudo or root home directory during program execution
+    std::string deletetmp = "";
+    std::ofstream tmp ("/opt/local/bin/.SBO/tmp.sbo");
+    tmp << deletetmp;
+    tmp.close();
+
+    stdmessage deleted;
+    deleted.tmpDeletionSuccess();
+    
+}
