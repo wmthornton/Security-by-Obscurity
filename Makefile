@@ -38,14 +38,14 @@ mac: sha256.h sha256.cpp sbo_main.cpp
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
 # user can simply type sbo into the terminal to start the executable as it will be in the user's $PATH
-install: sbo
+install: linux
 	sudo mkdir -p ${DESTDIR}
 	sudo cp sbo ${DESTDIR}
 
 remove: 
 	sudo rm -r ${EXECDIR}
 
-# Installing the executable to the /bin folder on macOS systems is a little more tricky.
+# Installing the executable to the opt/local/bin folder on macOS systems is a little more tricky.
 install-mac: mac
 	sudo mkdir -p ${MACDESTDIR}
 	sudo cp sbo-mac ${MACDESTDIR}
