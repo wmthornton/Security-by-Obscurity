@@ -13,6 +13,7 @@ CFLAGS = -Wall -g
 # These variables are linked to the Linux root filesystem
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
+TMPDIR  = $#/root/Desktop/.SBO
 
 # These variables are linked to the Applications directory of the macOS filesystem.
 MACDESTDIR = /opt/local/bin
@@ -26,14 +27,14 @@ all: linux mac
 #******************************************************
 # The executable target can be written very simply
 
-linux: sha256.h sha256.cpp sbo_main.cpp
-	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo
+linux: sha256.h sha256.cpp permissions.h permissions.cpp cin.h stdinput.cpp cout.h stdoutput.cpp encrypt.h encrypt.cpp sbo_main_ref.cpp
+	$(CC) $(CFLAGS) sha256.cpp stdoutput.cpp permissions.cpp stdinput.cpp encrypt.cpp sbo_main_ref.cpp -o sbo
 
 #******************************************************
 # The Macintosh executable target can be written very simply as well
 
-mac: sha256.h sha256.cpp sbo_main.cpp
-	$(CC) $(CFLAGS) sha256.cpp sbo_main.cpp -o sbo-mac
+mac: sha256.h sha256.cpp permissions.h permissions.cpp cin.h stdinput.cpp cout.h stdoutput.cpp encrypt.h encrypt.cpp sbo_main_ref.cpp
+	$(CC) $(CFLAGS) sha256.cpp stdoutput.cpp permissions.cpp stdinput.cpp encrypt.cpp sbo_main_ref.cpp -o sbo-mac
 
 # We install the executable to the /bin directory in the root of the filesystem. Normally this
 # can only be written to by the root user or someone using sudo. After this command is run, any system
@@ -41,9 +42,11 @@ mac: sha256.h sha256.cpp sbo_main.cpp
 install: linux
 	sudo mkdir -p ${DESTDIR}
 	sudo cp sbo ${DESTDIR}
+	sudo mkdir -p ${TMPDIR}
 
 remove: 
 	sudo rm -r ${EXECDIR}
+	sudo rm -r ${TMPDIR}
 
 # Installing the executable to the opt/local/bin folder on macOS systems is a little more tricky.
 install-mac: mac
