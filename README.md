@@ -9,3 +9,23 @@ I should note that in order to compile, you will need "g++" and "make" installed
 To remove the application, simply run "make remove" which will use sudo or root permissions to delete the sbo executable from the /bin directory.
 
 This program is cross-platform. If you have a macOS machine, the dependencies are the same. Use "make install-mac" and "make remove-mac". You executable will be named "sbo-mac" and will be stored in the /opt/local/bin directory. EDIT: CROSS PLATFORM IS NOT CURRENTLY WORKING DUE TO IMPLEMENTATION OF TMP FILE IN ROOT FILESYSTEM ON LINUX. 
+
+MAKEFILE CHEATSHEET:
+
+make all: Compiles executables for Linux and macOS and stores them in the source directory.
+
+make linux: Compiles linux executable and stores in source directory.
+
+make mac: Compiles macOS executable and stores in source directory.
+
+make install: Compiles linux executable and installs to /bin directory. Also creates tmp directory.
+
+make remove: Removes linux executable and tmp directory from system.
+
+make clean: Removes linux executable from source directory and regenerates tmp directory. Does not remove executable from /bin directory.
+
+make install-mac: Compiles macOS executable and installs to /opt/local/bin directory. Also creates tmp directory. (NOT CURRENTLY WORKING)
+
+make remove-mac: Removes macOS executable and tmp directory from system. (NOT CURRENTLY WORKING)
+
+make clean-mac: Removes macOS executable from source directory and regenerates tmp directory. Does not remove executable from /opt/local/bin directory. (NOT CURRENTLY WORKING)

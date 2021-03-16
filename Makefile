@@ -14,6 +14,7 @@ CFLAGS = -Wall -g
 DESTDIR = $#/bin
 EXECDIR = $#/bin/sbo
 TMPDIR  = $#/root/Desktop/.SBO
+CLEAN_STATUS  = "Filesystem is clean. tmp directory has been regenerated"
 
 # These variables are linked to the Applications directory of the macOS filesystem.
 MACDESTDIR = /opt/local/bin
@@ -45,8 +46,15 @@ install: linux
 	sudo mkdir -p ${TMPDIR}
 
 remove: 
+	sudo rm sbo
 	sudo rm -r ${EXECDIR}
 	sudo rm -r ${TMPDIR}
+
+clean:
+	sudo rm sbo
+	sudo rm -r ${TMPDIR}
+	sudo mkdir -p ${TMPDIR}
+	echo ${CLEAN_STATUS}
 
 # Installing the executable to the opt/local/bin folder on macOS systems is a little more tricky.
 install-mac: mac
