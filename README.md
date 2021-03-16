@@ -7,3 +7,5 @@ Right now, the code is designed to run as "sudo" because I want to expand the co
 I should note that in order to compile, you will need "g++" and "make" installed on your system. The command to compile successfully is: "make install". Running this command will compile the executable, and then, using sudo or root permissions, install the executable to your /bin directory. 
 
 To remove the application, simply run "make remove" which will use sudo or root permissions to delete the sbo executable from the /bin directory.
+
+This program is cross-platform. If you have a macOS machine, the dependencies are the same. Use "make install-mac" and "make remove-mac". You executable will be named "sbo-mac" and will be stored in the /opt/local/bin directory.
