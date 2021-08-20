@@ -8,6 +8,9 @@ sudo sbo OR
 sudo sbo-mac
 .SH DESCRIPTION
 sbo & sbo-mac are high-level shell utilities for generating salted and hashed passwords for use with websites or other high-security applications.
+The executable creates a temporary file containing a user-specified string and combines it with a calculated integer value to form a randomized string.
+This randomized string is then hashed using the SHA-256 algorithm and the resulting hash is returned to the user. The user can then use this hash as a
+password for a website or other application. Testing has indicated that most commerically available decryption websites are unable to decrypt.
 .SH OPTIONS
 .PP
 sbo and sbo-mac do not take any options.

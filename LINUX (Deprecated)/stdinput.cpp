@@ -64,7 +64,7 @@ void stdinput::processInputandCommands(){
 
         // Determine the path to the sudo or root home user directory and save input_string to tmp file
         std::string roothomedir = getenv("HOME");
-        std::ofstream tmp (roothomedir + "/Desktop/.SBO/tmp.sbo");
+        std::ofstream tmp (roothomedir + ".SBO/tmp.sbo");
         tmp << input_string;
         tmp.close();
 

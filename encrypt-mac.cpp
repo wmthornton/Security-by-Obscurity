@@ -119,15 +119,39 @@ void stdencrypt::processInputNERD(){
 
     // Call input_string and hash_encrypt_outut_to_string. Combine to form a salted value.
     std::string inp = input_string;
+
     std::string inp_salt = hash_encrypt_output_to_string;
+
+    // Output to file
+    std::ofstream hash_val ("/opt/local/bin/.SBO_OUT/hash_val.sbo");
+    hash_val << inp_salt;
+    hash_val.close();
+
     std::string salted_value = (inp + inp_salt);
 
     // Perform SHA/256 Conversion
     string sha_256c = sha256(salted_value);
 
+    // Output to file
+    std::ofstream gen1 ("/opt/local/bin/.SBO_OUT/gen1.sbo");
+    gen1 << sha_256c;
+    gen1.close();
+
+    // Perform second SHA/256 Conversion by adding the salted value to the SHA/256 hash
+    string sha_256d = sha256(sha_256c + hash_encrypt_output_to_string);
+
+    // Output to file
+    std::ofstream gen2 ("/opt/local/bin/.SBO_OUT/gen2.sbo");
+    gen2 << sha_256d;
+    gen2.close();
+
     // Output otp_hashes as human-readable values
-    std::cout << "Final Value: " << sha_256c << endl;
-    std::cout << "Hash Encrypt Output (Salt Value): " << hash_encrypt_output << endl;
+    std::cout << "GEN1: " << sha_256c << endl; // Debugging
+    std::cout << "GEN2: " << sha_256d << endl; // Debugging
+    std::cout << "HASH_VAL: " << hash_encrypt_output << endl; // Debugging
+    std::cout << "\n";
+    std::cout << "Files have been generated in /opt/local/bin/.SBO_OUT. Please provide to your user before\n";
+    std::cout << "generating credentials for another user!" << endl;
 
     // Run a security function to clear the contents of the tmp.sbo file
     stdsecurity cleanup;
