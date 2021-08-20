@@ -77,8 +77,8 @@ u32 diffusion[32]={
 
 u8 input[32]={
 // We want to be able to change this dynamically based on user file input.
-0x66,0xd5,0x4e,0x28,0x5f,0xff,0x6b,0x59,0xac,0x3b,0x34,0x14,0xb5,0x3c,0xb2,0xc6,
-0xa4,0x85,0x1e,0x0d,0x86,0xc7,0x4f,0xbb,0x75,0x5e,0xcb,0xc3,0x6e,0x48,0x79,0x8f};
+0x54,0x68,0x69,0x73,0x20,0x69,0x73,0x20,0x61,0x20,0x73,0x74,0x72,0x69,0x6e,0x67,
+0x20,0x74,0x68,0x61,0x74,0x20,0x49,0x20,0x61,0x6d,0x20,0x65,0x6e,0x74,0x65,0x72};
 
 // This function was written by Nintendo(c) Europe Research and Development (NERD) for the "HireMe" challenge.
 // We've modified it and renamed the function but the logic is the same.
@@ -108,7 +108,7 @@ void stdencrypt::processInputNERD(){
     std::string line;
     while(std::getline(tmp, line));
     {
-        
+        input_string = line;
     }
 
     // Perform the hash_encrypt function and save a variable as a string
@@ -122,8 +122,7 @@ void stdencrypt::processInputNERD(){
     std::string salted_value = (inp + inp_salt);
 
     // Perform SHA/256 Conversion
-    string sha_256c = sha256(salted_value); // This variable could be renamed to "sha_256" once other
-                                            // variables are removed from code
+    string sha_256c = sha256(salted_value);
 
     // Output otp_hashes as human-readable values
     std::cout << "Final Value: " << sha_256c << endl;

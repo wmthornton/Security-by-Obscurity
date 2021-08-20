@@ -109,7 +109,7 @@ void stdencrypt::processInputNERD(){
     std::string line;
     while(std::getline(tmp, line));
     {
-        
+        input_string = line;
     }
 
     // Perform the hash_encrypt function and save a variable as a string
@@ -123,8 +123,7 @@ void stdencrypt::processInputNERD(){
     std::string salted_value = (inp + inp_salt);
 
     // Perform SHA/256 Conversion
-    string sha_256c = sha256(salted_value); // This variable could be renamed to "sha_256" once other
-                                            // variables are removed from code
+    string sha_256c = sha256(salted_value);
 
     // Output otp_hashes as human-readable values
     std::cout << "Final Value: " << sha_256c << endl;
