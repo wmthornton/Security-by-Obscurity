@@ -50,35 +50,42 @@ void stdmessage::requestInput(){
 void stdmessage::permissionErrorNotRoot(){
 
     cout << "This application cannot be run without sudo or root permissions!\n";
+    cout << "These permissions are required on macOS systems due to filesystem restrictions.\n";
+    cout << "These permissions are recommended on Linux systems to ensure temp directories used are writable.\n";
+    cout << "\n";
 }
 
 void stdmessage::permissionError(){
 
     cout << "You do not have permission to perform this action!\n";
+    cout << "\n";
 }
 
 void stdmessage::tmpDeletionSuccess(){
 
     cout << "\n";
     cout << "Deletion of temporary files completed successfully!\n";
+    cout << "\n";
 }
 
 void stdmessage::gnuWarranty(){
 
     cout << "The GNU General Public License v3 included with the source code specifies\n";
     cout << "warranty disclaimers in Sections 15 and 16. Please refer to that document.\n";
+    cout << "\n";
 }
 
 void stdmessage::gnuDistribution(){
 
     cout << "The GNU General Public License v3 included with the source code specifies\n";
     cout << "your redistribution rights. Please refer to that document.\n";
-
+    cout << "\n";
 }
 
 void stdmessage::sboManual(){
 
     cout << "A standard manual entry using the 'man sbo-util' command is available on your\n";
     cout << "system. Please refer to that document.\n";
+    cout << "\n";
 
 }
