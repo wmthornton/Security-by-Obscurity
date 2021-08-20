@@ -61,11 +61,14 @@ install: linux
 	sudo mkdir -p ${DESTDIR}
 	sudo cp sbo ${DESTDIR}
 	sudo mkdir -p ${TMPDIR}
+	sudo install -g 0 -o 0 -m 0644 sbo-util.1 /usr/local/man/man8/
+	sudo gzip /usr/local/man/man8/sbo-util.1
 
 remove: 
 	sudo rm sbo
 	sudo rm -r ${EXECDIR}
 	sudo rm -r ${TMPDIR}
+	sudo rm /usr/local/man/man8/sbo-util.1.gz
 
 clean:
 	sudo rm sbo
@@ -78,13 +81,14 @@ install-mac: mac
 	sudo cp sbo-mac ${MACDESTDIR}
 	sudo mkdir -p ${MACTMPDIR}
 	sudo chmod +x ${MACEXEC}
-
-	
+	sudo install -g 0 -o 0 -m 0644 sbo-util.1 /usr/local/share/man/man1
+	sudo gzip /usr/local/share/man/man1/sbo-util.1
 
 remove-mac:
 	sudo rm sbo-mac
 	sudo rm -r ${MACEXECDIR}
 	sudo rm -r ${MACTMPDIR}
+	sudo rm /usr/local/share/man/man1/sbo-util.1.gz
 
 clean-mac:
 	sudo rm sbo-mac

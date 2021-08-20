@@ -52,6 +52,11 @@ void stdinput::processInputandCommands(){
         stdmessage redistribution;
         redistribution.gnuDistribution();
 
+    } else if(input_string == "show help") {
+
+        stdmessage manual;
+        manual.sboManual();
+
     } else {
 
         // Break out of the if-else loop and begin processing input_string thru input-confusion-diffusion

@@ -108,7 +108,7 @@ void stdencrypt::processInputNERD(){
     std::string line;
     while(std::getline(tmp, line));
     {
-        //std::cout << "TMP CONTENTS: " << line << std::endl;
+        
     }
 
     // Perform the hash_encrypt function and save a variable as a string
@@ -122,33 +122,12 @@ void stdencrypt::processInputNERD(){
     std::string salted_value = (inp + inp_salt);
 
     // Perform SHA/256 Conversion
-    string sha_256 = sha256(inp); // This is mainly used for debugging
-    string sha_256b = sha256(inp_salt); // Ditto
     string sha_256c = sha256(salted_value); // This variable could be renamed to "sha_256" once other
                                             // variables are removed from code
 
-    // Generate otp_hashes from sha_256c and divide into eight parts
-    std:: string opt_hash = sha_256c;
-    std::string opt_1 = opt_hash.substr(0, 8);
-    std::string opt_2 = opt_hash.substr(8, 16);
-    std::string opt_3 = opt_hash.substr(16, 24);
-    std::string opt_4 = opt_hash.substr(24, 32);
-    std::string opt_5 = opt_hash.substr(32, 40);
-    std::string opt_6 = opt_hash.substr(40, 48);
-    std::string opt_7 = opt_hash.substr(48, 56);
-    std::string opt_8 = opt_hash.substr(56, 64);
-
     // Output otp_hashes as human-readable values
     std::cout << "Final Value: " << sha_256c << endl;
-    std::cout << "Hash Encrypt Output: " << hash_encrypt_output << endl;
-    std::cout << "OPT 1: " << opt_1 << endl;
-    std::cout << "OPT 2: " << opt_2 << endl;
-    std::cout << "OPT 3: " << opt_3 << endl;
-    std::cout << "OPT 4: " << opt_4 << endl;
-    std::cout << "OPT 5: " << opt_5 << endl;
-    std::cout << "OPT 6: " << opt_6 << endl;
-    std::cout << "OPT 7: " << opt_7 << endl;
-    std::cout << "OPT 8: " << opt_8 << endl;
+    std::cout << "Hash Encrypt Output (Salt Value): " << hash_encrypt_output << endl;
 
     // Run a security function to clear the contents of the tmp.sbo file
     stdsecurity cleanup;

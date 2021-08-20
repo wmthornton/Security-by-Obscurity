@@ -36,7 +36,8 @@ void stdmessage::printHeader(){
     cout << "Security-by-Obscurity (sbo) Copyright (C) 2021 Wayne Thornton\n";
     cout << "This program comes with ABSOLUTELY NO WARRANTY; for details type\n"; 
     cout << "`show w'. This is free software, and you are welcome to redistribute\n"; 
-    cout << "it under certain conditions; type `show c' for details.\n";
+    cout << "it under certain conditions; type `show c' for details. For help,\n";
+    cout << "type 'show help'.\n";
     cout << "\n";
 
 }
@@ -72,5 +73,12 @@ void stdmessage::gnuDistribution(){
 
     cout << "The GNU General Public License v3 included with the source code specifies\n";
     cout << "your redistribution rights. Please refer to that document.\n";
+
+}
+
+void stdmessage::sboManual(){
+
+    cout << "A standard manual entry using the 'man sbo-util' command is available on your\n";
+    cout << "system. Please refer to that document.\n";
 
 }

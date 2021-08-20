@@ -31,6 +31,7 @@ using namespace std;
 
 int main(int argc, char* argv[])
 {
+    // We use stdsecurity as a variable type to hold the name of our variable, in this case "checkperm"
     stdsecurity checkperm;
     checkperm.checkPermissionsSudo();
 

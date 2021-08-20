@@ -40,6 +40,9 @@ class stdmessage {
 
     public:
         void gnuDistribution();
+
+    public:
+        void sboManual();
 };
 
 #endif // COUT_H
