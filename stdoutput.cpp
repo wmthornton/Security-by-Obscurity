@@ -51,7 +51,6 @@ void stdmessage::permissionErrorNotRoot(){
 
     cout << "This application cannot be run without sudo or root permissions!\n";
     cout << "These permissions are required on macOS systems due to filesystem restrictions.\n";
-    cout << "These permissions are recommended on Linux systems to ensure temp directories used are writable.\n";
     cout << "\n";
 }
 

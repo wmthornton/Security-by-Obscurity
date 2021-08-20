@@ -146,12 +146,12 @@ void stdencrypt::processInputNERD(){
     gen2.close();
 
     // Output otp_hashes as human-readable values
-    std::cout << "GEN1: " << sha_256c << endl; // Debugging
-    std::cout << "GEN2: " << sha_256d << endl; // Debugging
-    std::cout << "HASH_VAL: " << hash_encrypt_output << endl; // Debugging
+    std::cout << "GEN1: " << sha_256c << endl;
+    std::cout << "GEN2: " << sha_256d << endl;
+    std::cout << "HASH_VAL: " << hash_encrypt_output << endl;
     std::cout << "\n";
-    std::cout << "Files have been generated in /opt/local/bin/.SBO_OUT. Please provide to your user before\n";
-    std::cout << "generating credentials for another user!" << endl;
+    std::cout << "Files have been generated in /opt/local/bin/.SBO_OUT. Please copy these files to a\n";
+    std::cout << "secure location before generating additional credentials!" << endl;
 
     // Run a security function to clear the contents of the tmp.sbo file
     stdsecurity cleanup;
